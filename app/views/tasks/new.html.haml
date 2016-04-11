@@ -1,0 +1,12 @@
+=nested_form_for(@project, :url => tasks_path, :method => :post, :html => {:multipart => true, :id => 'task'}) do |f|
+  = f.hidden_field "project_id", :value => @project.id
+  = f.fields_for :tasks do |task_form|
+    = task_form.text_field :description
+    = task_form.collection_select :user_id , User.joins(:user_projects).where("user_projects.project_id" => @project.id) , :id , :email , :prompt => "Select Developer"
+    = task_form.link_to_remove do
+      %i.fa.fa-times
+  = f.link_to_add :tasks do
+    .btn.btn-xs
+      %i.fa.fa-plus
+      %span Add Task
+  = f.submit

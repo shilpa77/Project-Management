@@ -1,0 +1,7 @@
+- flash.each do |name, msg|
+  .message
+    %button#hide.close.remove.fa.fa-2x.fa-times
+    = content_tag :div, msg,  :class => "alert alert-#{name}"
+    
+ 
+     

@@ -1,0 +1,42 @@
+%header.main-header
+  .a.logo
+    %span.logo-mini
+      %img.img-circle{:alt => "User Image", :src => "/assets/logo.png", :height => "50", :width => "50"}
+    %span.logo-lg
+      %img.img-circle{:alt => "User Image", :src => "/assets/logo.png", :height => "50", :width => "50", :style=>"width: 50px;"}
+      %b Project Management
+  %nav.navbar.navbar-static-top{:role => "navigation", "data-no-turbolink" => ""}
+    %a.sidebar-toggle{"data-toggle" => "offcanvas", :href => "#", :role => "button"}
+      %span.sr-only Toggle navigation
+    .navbar-custom-menu
+      %ul.nav.navbar-nav
+        %span
+          %li
+            = link_to "Sign out",destroy_user_session_path, :class => "btn btn-default btn-flat"                
+        -# %li.dropdown.user.user-menu
+          -# %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            -# = image_tag("admin-user.png", :class => "user-image") 
+            -# %span.hidden-xs
+              -# Shilpa
+          -# %ul.dropdown-menu
+            -# %li.user-header
+              -# = image_tag("admin-user.png", :class => "img-circle") 
+            -# %li.user-footer
+              -# -# .pull-left
+                -# -# =link_to "Profile", account_settings_path, :class => "btn btn-default btn-flat"
+              -# .pull-right
+                -# = link_to "Sign out",destroy_user_session_path, :class => "btn btn-default btn-flat", :onclick=> "location.href='/admin_users/sign_out'"
+%aside.main-sidebar
+  %section.sidebar
+    %ul.sidebar-menu{"data-no-turbolink" => ""}
+      %li.header Contents
+      %li.active.treeview
+        %a{:href => "#"}
+          %i.fa.fa-dashboard
+          %span Dashboard
+      %li.treeview
+        %a{:href => "/projects/index"}
+          %i.fa.fa-users
+          %span Projects
+
+          

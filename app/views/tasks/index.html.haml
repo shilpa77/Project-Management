@@ -1,0 +1,28 @@
+%section.content-header
+  %h1 Task Listing
+%hr
+%section.content
+  .box
+    .box-header
+    .box-body.table-responsive
+      - if @tasks.empty?
+        %h3 No tasks to display
+      - else
+        %table.table-responsive.table.table-bordered
+          %thead
+            %tr
+              %th Project Name
+              %th Task Description
+              %th Status
+              %th Actions
+            %tbody
+              - @tasks.each do |task|
+                %tr
+                  %td= task.project.name 
+                  %td= task.description
+                  %td= task.status
+                  %td
+                    %select{:class => "select#{task.id}", :onchange => "updateStatus(#{task.id});"}
+                      %option{:disabled => "", :selected => "", :value => ""} Change Status
+                      %option{:value => "in progress"} In Progress
+                      %option{:value => "done"} Done

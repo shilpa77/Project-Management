@@ -1,0 +1,26 @@
+%section.content-header
+  %h1 Project Listing
+%hr
+%section.content
+  .box
+    .box-header
+    .box-body.table-responsive
+      - if @projects.empty?
+        %h3 No projects to display
+      - else
+        %table.table-responsive.table.table-bordered
+          %thead
+            %tr
+              %th Project Name
+              %th Description
+              - if current_user.role == "project_manager"
+                %th Actions
+            %tbody
+              - @projects.each do |proj|
+                %tr
+                  %td= proj.name 
+                  %td= proj.description
+                  - if current_user.role == "project_manager"
+                    %td
+                      = link_to "Assign Developers" , add_developer_project_path(:id=>proj.id)
+                      = link_to "/ Create Tasks" , new_task_path(:id=>proj.id)
