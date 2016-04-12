@@ -1,7 +1,7 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .device-content-wrapper
+.device-content-wrapper
+  %h2 Sign up
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
     .field
       = f.label :email
       %br/
@@ -26,5 +26,5 @@
       %br/
       = f.radio_button :role, "developer"
       = f.label :role, "Developer"
-    = f.submit "Sign up"
-= render "devise/shared/links"
+    = f.submit "Sign up", :onclick => "validateSignUpForm();"
+  = render "devise/shared/links"

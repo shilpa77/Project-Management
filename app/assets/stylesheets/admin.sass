@@ -54,8 +54,21 @@ body
 /*
  * Content Wrapper - contains the main content
  * ```.right-side has been deprecated as of v2.0.0 in favor of .content-wrapper  ```
-.content-wrapper, .device-content-wrapper
+.content-wrapper, .device-content-wrapper, .alert
   color: black
+  
+.device-content-wrapper
+  width: 40%
+  margin: auto
+  border: 1px solid #d2d6de
+  text-align: center
+.error
+  color: red
+
+.dash-widget
+  width: 30%
+  margin: .5%
+  float: left
 
 .content-wrapper, .right-side, .main-footer
   -webkit-transition: -webkit-transform 0.3s ease-in-out, margin 0.3s ease-in-out

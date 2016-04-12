@@ -1,7 +1,8 @@
 %section.content-header
-  %h2 Add Developers
+  %h2 
+    Assign Developers To #{@project.name} 
 %section.content
-  = form_tag assign_developers_projects_path do
+  = form_tag assign_developers_projects_path, :id => "proj-dev" do
     = hidden_field_tag "project_id", @project.id
     %table
       %thead
@@ -13,4 +14,4 @@
             %td
               = check_box_tag "developer[]", developer.id
               = developer.email
-    = submit_tag "Add"
+    = submit_tag "Add", :onclick => "validateCheckbox();"

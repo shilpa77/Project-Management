@@ -15,6 +15,8 @@
 //= require jquery_ujs
 //= require app.min
 //= require bootstrap.min
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require jquery_nested_form
 //= require tasks
 //= require turbolinks

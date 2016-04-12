@@ -4,9 +4,7 @@ class ProjectsController < ApplicationController
   layout 'admin'
   
   def index
-    puts "*************************"
-    puts user_signed_in?
-    @projects = Project.all
+    @projects = CommonMethods.user_projects(current_user)
   end
   
   def show
@@ -35,7 +33,6 @@ class ProjectsController < ApplicationController
   end
   
   def assign_developers
-    puts "*******##########################"
     puts params
     params['developer'].each do |dev_id|
       user_project = UserProject.create(project_id: params['project_id'], user_id: dev_id)

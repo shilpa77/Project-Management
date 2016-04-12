@@ -20,9 +20,10 @@
                 %tr
                   %td= task.project.name 
                   %td= task.description
-                  %td= task.status
+                  %td{:class => "status#{task.id}"}
+                    = task.status
                   %td
                     %select{:class => "select#{task.id}", :onchange => "updateStatus(#{task.id});"}
                       %option{:disabled => "", :selected => "", :value => ""} Change Status
-                      %option{:value => "in progress"} In Progress
-                      %option{:value => "done"} Done
+                      %option{:value => "In Progress"} In Progress
+                      %option{:value => "Done"} Done

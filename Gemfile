@@ -43,6 +43,8 @@ gem 'cancancan', '~> 1.10'
 
 gem "nested_form"
 gem "font-awesome-rails"
+gem "jquery-validation-rails"
+gem 'mattetti-googlecharts'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

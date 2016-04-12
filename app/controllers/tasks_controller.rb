@@ -17,9 +17,7 @@ class TasksController < ApplicationController
   end
   
   def new
-    puts "111******************* #{params}"
     @project = Project.find_by_id(params[:id])
-    puts "#%%%%%%%%%%%%%%%%%%%%%%%%55#{@project.inspect}"
   end
   
   def create
@@ -31,6 +29,14 @@ class TasksController < ApplicationController
     else
       flash[:danger] = project.errors.full_messages[0]
       render("new")
+    end
+  end
+  
+  def update_status
+    task = Task.find(params["task_id"])
+    task.update_attributes(status: params["status"])
+    respond_to do |format|
+      format.js
     end
   end
   

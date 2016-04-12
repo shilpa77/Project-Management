@@ -4,6 +4,10 @@
 %section.content
   .box
     .box-header
+      - if current_user.role == "project_manager"
+        .row
+          .col-md-12
+            = link_to "Create Tasks" , new_project_path, :class => "btn btn-info"
     .box-body.table-responsive
       - if @projects.empty?
         %h3 No projects to display

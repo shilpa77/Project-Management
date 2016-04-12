@@ -1,7 +1,4 @@
-- flash.each do |name, msg|
-  .message
-    %button#hide.close.remove.fa.fa-2x.fa-times
-    = content_tag :div, msg,  :class => "alert alert-#{name}"
-    
- 
-     
+- flash.each do |type, message|
+  %div{:class => "alert #{bootstrap_class_for(type)} fade in"}
+    %button.close{"data-dismiss" => "alert"} ×
+    = message

@@ -1,0 +1,28 @@
+%section.content-header
+  %h1
+    Dashboard
+%hr
+- if current_user.role == "project_manager"
+  .row
+    .col-md-12
+      = link_to "Create Tasks" , new_project_path, :class => "btn btn-info pull-right"
+%section.content
+  - if @projects.empty?
+    %h3 Project not available
+  - else
+    .row
+      - @projects.each do |project|
+        .col-lg-3.col-xs-6.col-md-4.dash-widget
+          .small-box.bg-aqua
+            .inner
+              %h3
+                #{project.tasks.count}Tasks
+              %p 
+                #{project.name}
+            .icon
+              %i.fa.fa-list
+              -url = "/tasks?project_id=#{project.id}"
+            %a.small-box-footer{:href => url}
+              More info
+              %i.fa.fa-arrow-circle-right
+-# = google_pie_chart([["Test1",80],["Test2",10],["Test3",10]])                
