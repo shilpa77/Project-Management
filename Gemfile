@@ -46,6 +46,9 @@ gem "font-awesome-rails"
 gem "jquery-validation-rails"
 gem 'mattetti-googlecharts'
 
+# To resolve heroku request time out
+gem 'rack-timeout'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
